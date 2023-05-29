@@ -51,7 +51,7 @@ public class AccountController {
      * @return Mono<ResponseEntity<Account>>
      */
     @GetMapping("/customer/{customerId}")
-    public Mono<ResponseEntity<Account>> lookForClient(@PathVariable String customerId){
+    public Mono<ResponseEntity<Account>> searchAccountByCustomerId(@PathVariable String customerId){
         return service.findByCustomerId(customerId).map(c -> ResponseEntity.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(c))
